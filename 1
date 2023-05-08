@@ -1,0 +1,10 @@
+function insertRowsAbove() {
+  var ui = SpreadsheetApp.getUi();
+  var result = ui.prompt('Enter the number of rows to insert:', ui.ButtonSet.OK_CANCEL);
+  var numRowsToInsert = parseInt(result.getResponseText());
+  if (numRowsToInsert > 0) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var selectedRow = sheet.getActiveRange().getRow();
+    sheet.insertRowsBefore(selectedRow, numRowsToInsert);
+  }
+}
